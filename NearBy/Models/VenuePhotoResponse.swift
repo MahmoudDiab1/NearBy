@@ -1,5 +1,5 @@
 //
-//  getVenuePhotoResponse.swift
+//  VenuePhotoResponse.swift
 //  NearBy
 //
 //  Created by mahmoud diab on 7/8/20.

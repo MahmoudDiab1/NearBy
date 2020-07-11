@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreLocation
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
@@ -18,13 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         // func initilizeAppMode
-        guard let nearbyVC = window?.rootViewController as? NearBy else { return }
-        let storedMode = UserDefaults.standard.string(forKey: "currentMode")
-        if storedMode == nil {
-            nearbyVC.currentMode =  "realTime"
-            
-        } else { nearbyVC.currentMode = UserDefaults.standard.string(forKey: "currentMode")!
-            
+        guard let nearByVC = window?.rootViewController as? NearBy else { return }
+        let storedMode = UserDefaults.standard.string(forKey:StaticValues.shared.currentMode)
+        if storedMode == nil
+        {
+            nearByVC.currentMode = "realTime"
+        }
+        else
+        {
+            nearByVC.currentMode = UserDefaults.standard.string(forKey: StaticValues.shared.currentMode)!
         }
     }
     
