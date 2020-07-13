@@ -21,9 +21,7 @@ class NearBy: UIViewController,CoreLocationServiceDelegate {
     @IBOutlet weak var maskView: UIView!
     @IBOutlet weak var userWarningImage: UIImageView!
     @IBOutlet weak var errorMessageTimer: UILabel!
-    
-    
-    
+     
     
     
     //    MARK:- VARIABLES -
@@ -44,8 +42,7 @@ class NearBy: UIViewController,CoreLocationServiceDelegate {
     }
     let spinner = SpinnerView(frame: CGRect(x:(UIScreen.main.bounds.width-20)/2, y:(UIScreen.main.bounds.height)/2, width: 100, height: 100))
     
-    
-    
+     
     
     
     
@@ -53,14 +50,12 @@ class NearBy: UIViewController,CoreLocationServiceDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         setupNearByScene(currentMode: currentAppMode)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         
     }
     
     
@@ -73,12 +68,13 @@ class NearBy: UIViewController,CoreLocationServiceDelegate {
             currentMode = StaticValues.shared.singleUpdate
         }
         UserDefaults.standard.set(currentMode, forKey: StaticValues.shared.currentMode )
+        
         CoreLocationService.getLocation(appMode: currentAppMode, completion: handleGetLocation(locationData:))
     }
     
     
     //    MARK:- FUNCTIONS -
-   
+    
     //MARK:- Handle location change
     
     func subscribeInLocationUpdate () {
@@ -97,20 +93,22 @@ class NearBy: UIViewController,CoreLocationServiceDelegate {
         let long = locationData.longitude!
         FoursquareServices.getGroupItems(latitude: lat, longtude: long,  completion:handleGetGroupItems(result:))
     }
-    
-     //MARK:- Get Venues based on location and appMode.
+    func runGetLocation (){
+        CoreLocationService.getLocation(appMode: currentAppMode, completion: handleGetLocation(locationData:))
+    }
+    //MARK:- Get Venues based on location and appMode.
     
     func handleGetGroupItems( result:Result<ExploreModel?,ErrorHandler> ) {
         switch result {
             
         case .success(let responseData):
             guard let cleanResponseData = responseData?.response.groups[0].items
-            else  {
+                else  {
                     setupInErrorMode(in:.somethingWentWrong)
                     return
             }
             guard cleanResponseData.count>0 else { setupInErrorMode(in: .noDataFound)
-                    return
+                return
             }
             self.apiVenues = cleanResponseData
             self.venueTableView.reloadData()
@@ -129,6 +127,8 @@ class NearBy: UIViewController,CoreLocationServiceDelegate {
         }
         //print(apiVenues)
     }
+    
+    
     //MARK: Handle caching
     func handleLoadCashedItems(result:Result<[VenueModel],Error>){
         switch result {
@@ -152,7 +152,7 @@ class NearBy: UIViewController,CoreLocationServiceDelegate {
             setupInErrorMode(in: .cannotCashData)
         }
     }
-   
+    
     //MARK:- Subscribe to location error notification .
     func subscribeInLocationError() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleLocationErrorNotification), name: Notification.Name("handleLocationError"), object: nil)
@@ -160,7 +160,7 @@ class NearBy: UIViewController,CoreLocationServiceDelegate {
     @objc  func handleLocationErrorNotification (_ notification:NSNotification) {
         setupInErrorMode(in: .unknownLocation)
     }
-     
+    
     //MARK:- Setup and configuration -
     //MARK:- Setup Scene -
     func setupNearByScene (currentMode:appMode ) {
@@ -227,14 +227,14 @@ class NearBy: UIViewController,CoreLocationServiceDelegate {
 
 
 
-//    MARK:- TableView functions. -
+//    MARK:- TableView functions.
+
 extension NearBy:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isConnectedToInternet == true {return  apiVenues.count }
         else { return  coreDataItems.count }
     }
-    
     
     //Configure table view cells 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -248,18 +248,20 @@ extension NearBy:UITableViewDelegate,UITableViewDataSource {
                     var venueImage : UIImage?
                     let venue = self.apiVenues[indexPath.row].venue
                     
-            switch result {
-               case .success(let data) :
+                    switch result {
+                    case .success(let data) :
                         
-                        if let data = data {
-                            venueImage = UIImage(data: data)
-                            cell.configureVenueTableViewCell(apiVenue: venue, venueImage: venueImage)
-                            persistenceService.shared.saveData(item: venue!, venueImage: data, completion: self.handleCachedItems(result:))
-                        } else {
-                            cell.configureVenueTableViewCell(apiVenue: venue, venueImage: placeHolder )
+                        guard let data = data
+                            else {
+                                cell.configureVenueTableViewCell(apiVenue: venue, venueImage: placeHolder )
+                                return
                         }
+                        venueImage = UIImage(data: data)
+                        cell.configureVenueTableViewCell(apiVenue: venue, venueImage: venueImage)
+                        persistenceService.shared.saveData(item: venue!, venueImage: data, completion: self.handleCachedItems(result:))
                         
-               case .failure(_):
+                        
+                    case .failure(_):
                         
                         cell.configureVenueTableViewCell(apiVenue: venue, venueImage: placeHolder )
                     }
@@ -274,12 +276,10 @@ extension NearBy:UITableViewDelegate,UITableViewDataSource {
         
         return cell
     }
-    
-    
     //Table view cell height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
-    //return view.frame.height/6
+        //return view.frame.height/6
     }
 }
 

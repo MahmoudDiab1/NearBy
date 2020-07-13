@@ -55,6 +55,7 @@ extension NearBy {
     
     func handelError(warningImage:String,errorMessage:String,errorDetails:String)   {
         DispatchQueue.main.async {
+            self.spinner.removeFromSuperview()
             self.maskView.isHidden  = false
             self.userWarningImage.image = UIImage(named: warningImage)
             self.errorMessageLable.text = errorMessage.uppercased()
@@ -69,13 +70,9 @@ extension NearBy {
         
         handelError(warningImage: StaticValues.shared.networkDisconnectionImage, errorMessage: errorMessage, errorDetails: errorDetails)
         increaseTimerLable(to: errorTimerLimit)
-        if timesCoreDataChecked == 0 {
-        
+      
         persistenceService.shared.loadCashedItems(completion: self.handleLoadCashedItems(result:))
-        } else {
-            errorMessageTimer.isHidden = true
-            errorDetailsLable.text = " sorry we didn't found   data saved before"
-        }
+  
     }
     func  handleSomethingWentWrong() {
         errorMessageTimer.isHidden = true
@@ -98,7 +95,7 @@ extension NearBy {
         //TODO:
     }
     func handleFailToLoadCach() {
-        //TODO: 
+        //TODO:
     }
     
 }
