@@ -9,14 +9,7 @@
 import Foundation
 import UIKit
 
-
-
-
-
-
-
-
-
+// Spinning circular View
 @IBDesignable
 class SpinnerView : UIView {
     

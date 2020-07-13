@@ -8,13 +8,16 @@
 
 import Foundation
 
+//MARK: Responsbility :- Works as middle layer between view View controllers and coreLocationEngine. -
 class CoreLocationService { 
   class  func getLocation(appMode:AppModeEndPoint, completion:@escaping(LocationData)->())   {
         CoreLocationEngine.shared.checkLocationServices(currentAppMode: appMode)
-        var locationData = LocationData()
+          var locationData = LocationData()
         locationData.latitude = UserDefaults.standard.double(forKey: StaticValues.shared.currentLatitude)
         locationData.longitude  = UserDefaults.standard.double(forKey: StaticValues.shared.currentLongitude)
+     
         completion(locationData)
+     
     }
-    
 }
+ 

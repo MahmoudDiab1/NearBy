@@ -8,6 +8,7 @@
 
 import Foundation
 
+//MARK:- Responsbility : Encapsulates error types for Network layer -
 
 enum ErrorHandler :Error {
     case offline
@@ -36,10 +37,11 @@ enum ErrorHandler :Error {
         case .error(let error):
             return "\(error)."
         case .APIError(let apiError ):
-          return "\(apiError)."
+            return "\(apiError)."
         }
     }
 }
+
 struct APIErrorModel : Decodable {
     let code: Int
     let errorType : String?

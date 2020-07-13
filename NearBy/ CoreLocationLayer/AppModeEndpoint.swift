@@ -9,18 +9,19 @@
 import Foundation
 import  CoreLocation
 
+//MARK:- Responsbility : configure the response for get location function based on appe mode for fancy handeling. -
+
+protocol AppModeEndPoint {
+    var locationManager:CLLocationManager {get}
+} 
+
 enum appMode:AppModeEndPoint {
     case singleUpdateLocation
     case realTimeUpdate
 }
-protocol AppModeEndPoint {
-    var locationManager:CLLocationManager {get}
-}
-extension AppModeEndPoint {
-    
-}
+
 extension appMode {
-     var locationManager: CLLocationManager{
+    var locationManager: CLLocationManager{
         let manager = CLLocationManager()
         manager.distanceFilter = 500
         manager.desiredAccuracy=kCLLocationAccuracyNearestTenMeters
@@ -32,7 +33,7 @@ extension appMode {
             manager.allowsBackgroundLocationUpdates = true
             manager.pausesLocationUpdatesAutomatically = false
             manager.startUpdatingLocation()
-        
+            
         case .singleUpdateLocation:
             
             manager.requestWhenInUseAuthorization()

@@ -10,27 +10,31 @@ import Foundation
 import CoreData
 import UIKit
 
+//MARK:-  Responsbility :- Works as middle layer between view controllers and PersistenceEngine. -
+
 class persistenceService {
+    static let shared = persistenceService()
     var cachedEntity = "VenueModel"
     
     //  Read
-    func getCashedItems ( completion:(Result<[NSManagedObject],Error>)->()) {
-        persistenceEngine.shared.fetch(entityName: cachedEntity) { result in
+    func loadCashedItems ( completion:@escaping(Result<[VenueModel],Error>)->()) {
+        persistenceEngine.fetch(entityName: cachedEntity) { result in
             completion(result)
         }
     }
     
     // Delete
-    func deleteCashedItems (completion:(Result<Bool,Error>)->()) {
-        persistenceEngine.shared.resetAllRecords(in: cachedEntity) { result in
+    func deleteCashedItems (completion:@escaping(Result<Bool,Error>)->() ) {
+        persistenceEngine.resetAllRecords(in: cachedEntity) { result in
             completion(result)
         }
     }
     
     // Add
-    func casheOneItem (item:Venue , completion:(Result<Bool,Error>)->()) {
-        persistenceEngine.shared.save(venue:item) { result in
+    func saveData (item:Venue ,venueImage:Data?, completion:@escaping(Result<Bool,Error>)->()) {
+        persistenceEngine.save(venue: item, venueImage: venueImage) { result in
             completion(result)
         }
     }
+     
 }

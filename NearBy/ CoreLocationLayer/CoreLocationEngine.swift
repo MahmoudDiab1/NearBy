@@ -9,15 +9,17 @@
 import Foundation
 import CoreLocation
 
-protocol CorLocationServiceDelegate {
+
+protocol CoreLocationServiceDelegate {
     func showAlert(title:String,message:String)
 }
 
+//MARK:- Encapsulates the needed functions to setup and get location
 class CoreLocationEngine: NSObject {
     public static var shared = CoreLocationEngine()
     
     //MARK:- VARIABLES
-    var delegate : CorLocationServiceDelegate = NearBy()
+    var delegate : CoreLocationServiceDelegate = NearBy()
     var locationManager = CLLocationManager()
     
     
@@ -55,13 +57,9 @@ class CoreLocationEngine: NSObject {
             delegate.showAlert(title: "Location services disabled", message: "Your location services is disabled.Try to go to settings and enable it")
         }
     }
-    
 }
 
-
-
-
-//    MARK:- CLLOCATION MANAGER DELEGATE FUNCTIONS - 
+//    MARK:- CLLOCATION MANAGER DELEGATE FUNCTIONS -
 extension CoreLocationEngine: CLLocationManagerDelegate {
     // save Double lat,long.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -83,5 +81,8 @@ extension CoreLocationEngine: CLLocationManagerDelegate {
         }
         
         
+        func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+            NotificationCenter.default.post(name: Notification.Name("handleLocationError"), object: nil)
+        }
     }
 }

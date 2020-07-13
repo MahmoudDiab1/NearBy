@@ -33,8 +33,6 @@ struct Response: Decodable{
     let headerLocationGranularity: String?
     let totalResults: Int?
     let groups: [Group]
- // let suggestedBounds: SuggestedBounds?
- // let warning: Warning?
 }
 
 
@@ -57,8 +55,6 @@ struct Venue:Decodable {
     let name: String?
     let location: Location?
     let popularityByGeo: Double?
-    //  let categories: [Category]?
-    //  let venuePage: VenuePage?
 }
 
 
@@ -74,55 +70,4 @@ struct Location: Decodable {
     let country: String?
     let formattedAddress: [String]?
     
-}
-
-//// MARK: - LabeledLatLng
-//struct LabeledLatLng: Decodable {
-//    let label: String?
-//    let lat, lng: Double?
-//}
-//
-//// MARK: - VenuePage
-//struct VenuePage: Decodable {
-//    let id: String?
-//}
-//
-//// MARK: - SuggestedBounds
-//struct SuggestedBounds: Decodable{
-//    let ne, sw: Ne?
-//}
-//
-//// MARK: - Ne
-//struct Ne: Decodable{
-//    let lat, lng: Double?
-//}
-//
-//// MARK: - Warning
-//struct Warning: Decodable {
-//    let text: String?
-//}
-
-
-///______________________________________________________________________
-
-//
-//// MARK: - Category
-//struct Category: Decodable {
-//    let id:String?
-//    let name:String?
-//    let pluralName:String?
-//    let shortName: String?
-//    let icon: Icon?
-//    let primary: Bool?
-//}
-//
-//// MARK: - Icon
-//struct Icon:Decodable {
-//    let iconPrefix: String?
-//    let suffix: String?
-//
-//    enum CodingKeys: String, CodingKey {
-//        case iconPrefix = "prefix"
-//        case suffix
-//    }
-//}
+} 

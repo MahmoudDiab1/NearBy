@@ -8,7 +8,7 @@
 
 import Foundation
 
-//MARK:-Responsbility : To capture data  or error in generic way.
+//MARK:-Responsbility : To capture data  or error in generic way -
 
 enum Result<T,U> where U:Error {
     case success (T)

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 //MARK: RESPONSIBLE FOR CONFIGURING VENUE TABLE VIEW CELL.
 class VenueTableViewCell: UITableViewCell {
@@ -16,7 +17,6 @@ class VenueTableViewCell: UITableViewCell {
     @IBOutlet weak var venueAddress: UILabel!
     @IBOutlet weak var venueName: UILabel!
     
-    
     //MARK:- VARIABLES -
     
     
@@ -24,20 +24,30 @@ class VenueTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        venueName.text = ""
+        venueAddress.text = ""
+        venuePhoto.layer.cornerRadius = .pi*2
+    }
+    
+    
+    
+    //MARK:- Functions-
+
+    func configureVenueTableViewCell( apiVenue:Venue?,venueImage:UIImage? ) {
+        self.venueName.text = apiVenue?.name
+        let address  =  apiVenue?.location?.address
+        self.venueAddress.text = address 
+            venuePhoto.image = venueImage!
+    }
+    
+    func configureCoreVenueTableViewCell( coreDataVenue:VenueModel ) {
+        self.venueName.text = coreDataVenue.name
+        self.venueAddress.text = coreDataVenue.address
+        if let image = UIImage(data: coreDataVenue.venuePhoto!){
+        self.venuePhoto.image = image
         
     }
-    
-    
-    
-    //MARK:- ACTIONS -
-    func configureVenueTableViewCell( venue:Venue? ) {
-        self.venueName.text = venue?.name
-        let address  = "\(String(describing:(venue?.location?.city))),\(String(describing: (venue?.location?.address)))."
-        self.venueAddress.text = address
     }
-    
 }
 
 
-
-//let suffix = (responseData?.response?.photos?.items[i]?.suffix)
