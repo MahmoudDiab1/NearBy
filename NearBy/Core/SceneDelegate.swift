@@ -45,18 +45,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         NetworkEngine.isConnected{ isConnected in
             DispatchQueue.main.async {
                 nearByVC.view.addSubview(nearByVC.spinner)
+                
+                if isConnected == true {
+                    nearByVC.isConnectedToInternet = true
+                    nearByVC.runGetLocation()
+                    
+                } else {
+                    nearByVC.setupInErrorMode(in: .networkDisconnection)
+                    nearByVC.isConnectedToInternet = false
+                }
             }
-            
-            if isConnected == true {
-                nearByVC.isConnectedToInternet = true
-                nearByVC.runGetLocation()
-               
-            } else {
-                nearByVC.setupInErrorMode(in: .networkDisconnection)
-                nearByVC.isConnectedToInternet = false
-            }
-        }
-        
+        } 
     }
     
     

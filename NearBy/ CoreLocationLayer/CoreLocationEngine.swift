@@ -41,7 +41,8 @@ class CoreLocationEngine: NSObject {
         case .restricted:
             delegate.showAlert(title: "Location Services restricted", message: "Location Services restricted may be because parental control.")
         case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
+            locationManager.requestAlwaysAuthorization()
+        
             delegate.showAlert(title: "Location service isn't determined yet", message: "Make sure that you enabled location service")
             return
         default:
