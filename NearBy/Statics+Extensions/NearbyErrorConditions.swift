@@ -50,6 +50,7 @@ extension NearBy {
             DispatchQueue.main.async {
                 self.maskView.isHidden = false
             }
+            persistenceService.shared.loadCashedItems(completion: handleLoadCashedItems(result:))
         }
     }
     
@@ -86,9 +87,7 @@ extension NearBy {
         self.errorMessageTimer.isHidden = true
         let errorMessage  = "No venues arround you!"
         let errorDetails  = "Try to change your location."
-        self.handelError(warningImage: StaticValues.shared.noVenuesAroundImage, errorMessage: errorMessage, errorDetails: errorDetails)
-        persistenceService.shared.loadCashedItems(completion: self.handleLoadCashedItems(result:))
-        
+        self.handelError(warningImage: StaticValues.shared.noVenuesAroundImage, errorMessage: errorMessage, errorDetails: errorDetails) 
     }
     
     func handleCannotCachData(){

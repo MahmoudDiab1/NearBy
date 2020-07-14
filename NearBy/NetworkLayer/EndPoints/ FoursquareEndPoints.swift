@@ -16,12 +16,12 @@ import Foundation
  - Note: Getting photos for places is premium features that means you have 50
  times to request for Venue photo in free mode */
 
-//"KS2K5RHOUT5VH4OJIZ4JQ4OIDOUXZ0XKVHD20E203TSKVYWL"
-// "R32CW3S4PA34OBGS5QOT2ZWWVPHPN1ACHP2RCM2HFFOZYQ4L"
+//"Y2AZWEJZNENVWOL0GLZJ1BIWCCQXCTBWPJEQA5V4LBPQVVF1"
+//"3L4QLQVTSCJAMSPIIYGE0E1P5NY1PWT11KKNHOBAFEACBD5N"
 
-private let CLIENTID = "Y2AZWEJZNENVWOL0GLZJ1BIWCCQXCTBWPJEQA5V4LBPQVVF1"
-private let CLIENTSECRET = "3L4QLQVTSCJAMSPIIYGE0E1P5NY1PWT11KKNHOBAFEACBD5N"
-private let resultLimit = "20"
+private let CLIENTID = "KS2K5RHOUT5VH4OJIZ4JQ4OIDOUXZ0XKVHD20E203TSKVYWL"
+private let CLIENTSECRET =  "R32CW3S4PA34OBGS5QOT2ZWWVPHPN1ACHP2RCM2HFFOZYQ4L"
+private let resultLimit = "8"
 
 //Configure url in different cases (designed and  seperated to keep it easy to change and update  )
 
@@ -73,7 +73,7 @@ extension FoursquareEndPoints {
                 URLQueryItem(name: "client_id", value:CLIENTID),
                 URLQueryItem(name: "client_secret" ,value: CLIENTSECRET),
                 URLQueryItem(name: "v", value: currentDate),
-                URLQueryItem(name: "limit", value: "1")
+                URLQueryItem(name: "limit", value: "8")
             ]
         }
     }

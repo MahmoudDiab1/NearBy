@@ -32,8 +32,8 @@
 		0AF6058524BA1D0F00E1A888 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6058424BA1D0F00E1A888 /* PersistenceService.swift */; };
 		0AF6058B24BA293800E1A888 /* PersistenceEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6058A24BA293800E1A888 /* PersistenceEngine.swift */; };
 		0AF6058E24BA452700E1A888 /* APIErrorHandeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6058D24BA452700E1A888 /* APIErrorHandeling.swift */; };
-		0AF6059024BBB5B900E1A888 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6058F24BBB5B900E1A888 /* SceneDelegate.swift */; };
 		0AF6059324BCF0CE00E1A888 /* NearbyErrorConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6059224BCF0CE00E1A888 /* NearbyErrorConditions.swift */; };
+		0AF605AC24BDC29400E1A888 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF605AB24BDC29400E1A888 /* SceneDelegate.swift */; };
 		0AFC623824B76ECD0066E7CB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFC623724B76ECD0066E7CB /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,10 +65,10 @@
 		0AF6058424BA1D0F00E1A888 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		0AF6058A24BA293800E1A888 /* PersistenceEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceEngine.swift; sourceTree = "<group>"; };
 		0AF6058D24BA452700E1A888 /* APIErrorHandeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorHandeling.swift; sourceTree = "<group>"; };
-		0AF6058F24BBB5B900E1A888 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/SceneDelegate.swift"; sourceTree = "<group>"; };
 		0AF6059224BCF0CE00E1A888 /* NearbyErrorConditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyErrorConditions.swift; sourceTree = "<group>"; };
 		0AF6059524BCF6A700E1A888 /* LocationWithoutVenue.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocationWithoutVenue.gpx; sourceTree = "<group>"; };
 		0AF6059A24BCF6F900E1A888 /* LocationForTesting.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocationForTesting.gpx; sourceTree = "<group>"; };
+		0AF605AB24BDC29400E1A888 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0AFC623724B76ECD0066E7CB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -124,7 +124,7 @@
 				0AF6059A24BCF6F900E1A888 /* LocationForTesting.gpx */,
 				0AF6059524BCF6A700E1A888 /* LocationWithoutVenue.gpx */,
 				0ABAF0B724B4C60900949BC7 /* AppDelegate.swift */,
-				0AF6058F24BBB5B900E1A888 /* SceneDelegate.swift */,
+				0AF605AB24BDC29400E1A888 /* SceneDelegate.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -320,8 +320,8 @@
 				0ABAF0E024B4DFBA00949BC7 /* ExploreModel.swift in Sources */,
 				0ABAF0EC24B5E99A00949BC7 /* VenueTableViewCell.swift in Sources */,
 				0ABAF0C224B4C60900949BC7 /* NearBy.xcdatamodeld in Sources */,
+				0AF605AC24BDC29400E1A888 /* SceneDelegate.swift in Sources */,
 				0AF6058224B9F87700E1A888 /* SpinnerView.swift in Sources */,
-				0AF6059024BBB5B900E1A888 /* SceneDelegate.swift in Sources */,
 				0AF6058524BA1D0F00E1A888 /* PersistenceService.swift in Sources */,
 				0ABAF0D824B4CCAB00949BC7 /* NetworkEngine.swift in Sources */,
 				0ABAF0DA24B4CCBA00949BC7 /*  FoursquareServices.swift in Sources */,
