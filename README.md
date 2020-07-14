@@ -25,7 +25,7 @@ User should be able to switch between the two modes, the default mode is “Real
 - The opening article on the same screen as an expandable cell or open in a different scene by clicking on the image button of the app logo.
 - Navigation between articles and headlines collected from different sources around the world.
 
-<img width="290" alt="Screen Shot 2020-07-14 at 10 46 51 AM" src="https://user-images.githubusercontent.com/64661105/87411997-c2c45800-c5c8-11ea-957a-893a5238ce01.png"><img width="290" alt="Screen Shot 2020-07-14 at 10 40 15 AM" src="https://user-images.githubusercontent.com/64661105/87412026-c952cf80-c5c8-11ea-888b-ca139a6f21bc.png"> <img width="290" alt="Screen Shot 2020-07-14 at 10 48 13 AM" src="https://user-images.githubusercontent.com/64661105/87412451-5b5ad800-c5c9-11ea-905d-8c9e29e406f0.png">
+<img width="250" alt="Screen Shot 2020-07-14 at 10 46 51 AM" src="https://user-images.githubusercontent.com/64661105/87411997-c2c45800-c5c8-11ea-957a-893a5238ce01.png"><img width="265" alt="Screen Shot 2020-07-14 at 10 40 15 AM" src="https://user-images.githubusercontent.com/64661105/87412026-c952cf80-c5c8-11ea-888b-ca139a6f21bc.png"><img width="250" alt="Screen Shot 2020-07-14 at 10 48 13 AM" src="https://user-images.githubusercontent.com/64661105/87412451-5b5ad800-c5c9-11ea-905d-8c9e29e406f0.png">
 
 
 # <a href="https://developer.foursquare.com/docs/">FourSquare API</a> .
