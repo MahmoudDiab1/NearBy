@@ -20,11 +20,6 @@ User should be able to switch between the two modes, the default mode is “Real
 - Notify the user if his location hasn't any venues.
 - Notify the user if the location is unknown to the system to change his location.
 - Notify the user if there is a wrong issue.
-- Ability to add notes and delete it by swiping (it's helpful within navigation).
-- Users have access to go to the source of the headline/Article on safari.
-- The opening article on the same screen as an expandable cell or open in a different scene by clicking on the image button of the app logo.
-- Navigation between articles and headlines collected from different sources around the world.
-
 <img width="250" alt="Screen Shot 2020-07-14 at 10 46 51 AM" src="https://user-images.githubusercontent.com/64661105/87411997-c2c45800-c5c8-11ea-957a-893a5238ce01.png"><img width="265" alt="Screen Shot 2020-07-14 at 10 40 15 AM" src="https://user-images.githubusercontent.com/64661105/87412026-c952cf80-c5c8-11ea-888b-ca139a6f21bc.png"><img width="250" alt="Screen Shot 2020-07-14 at 10 48 13 AM" src="https://user-images.githubusercontent.com/64661105/87412451-5b5ad800-c5c9-11ea-905d-8c9e29e406f0.png">
 
 
@@ -45,6 +40,7 @@ Important notes:
 - Download NearBy and open it to add your a client id & secret key before the run.
 - Open NearBy - > NetworkLayer ->FourSquareEndPoint at the top of file you will capitalized (CLIENTSECRET & CLIENTID).
 - Change the values for each element (CLIENTSECRET & CLIENTID). by your keys and run the app.
+- To change the number of venues displayed as result, Change the value of limit attribute.
  
  
  
